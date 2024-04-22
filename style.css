@@ -1,0 +1,206 @@
+:root {
+	--fallback-color: lime;
+	--main-color: purple;
+	--accent-color: #ffdf00;
+	--shadow-color: black;
+	--text-color: white;
+}
+
+::selection {
+	color: black;
+	background-color: var(--accent-color);
+	text-shadow: none;
+}
+
+@font-face {
+	font-family: brass-wondermail;
+	src: url("assets/fonts/brass-wondermail.ttf");
+}
+
+@font-face {
+	font-family: "8bitoperator JVE";
+	src: url("assets/fonts/8bitoperator_jve.ttf")
+}
+
+@font-face {
+	font-family: "DragonOracle";
+	src: url("assets/fonts/DragonOracle.ttf");
+}
+
+body {
+	color: var(--text-color);
+	background-color: black;
+	font-family: "DragonOracle", "8bitoperator JVE", brass-wondermail, Verdana;
+	font-size: 200%;
+	transition: 1s;
+	margin: 0;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: var(--text-color);
+}
+
+.lightning-flash {
+	background-color: white;
+	transition: 0s;
+}
+
+@keyframes bg-scroll {
+	from {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: calc(var(--bg-size) * var(--scr-x)) calc(var(--bg-size) * var(--scr-y));
+	}
+}
+
+.flex {
+	display: flex;
+}
+
+.background {
+	background-image: url("assets/textures/noiseTexture.png");
+	background-size: var(--bg-size);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: -2;
+
+	animation: bg-scroll var(--scr-time) linear infinite;
+}
+
+.rain {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: -1;
+}
+
+
+h1 {
+	display: block;
+	font-weight: normal;
+	text-shadow: 4px 4px var(--shadow-color);
+	margin: 0;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: 200px auto 200px;
+	grid-template-areas:
+		"nav  head    updated"
+		"nav  content side"
+		"nav content side"
+		"blank content blank2";
+	gap: 10px;
+	max-width: 1500px;
+	margin: auto;
+}
+
+.welcome {
+	grid-area: head;
+	text-align: center;
+}
+
+.navbar {
+	grid-row: 1 / -1;
+	grid-area: nav;
+	position: sticky;
+	top: 10px;
+}
+
+.sidebar {
+	grid-area: side;
+}
+
+.settings {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.settings li {
+	margin: 0;
+	padding: 0;
+}
+
+.content {
+	grid-area: content;
+}
+
+.box {
+	background-color: var(--fallback-color);
+	background-image: linear-gradient(to top left, black -100%, var(--main-color));
+
+	padding: 5px 10px;
+
+	color: var(--text-color);
+	text-shadow: 0.0625em 0.0625em var(--shadow-color);
+
+	border-color: var(--fallback-color);
+	border-style: solid;
+	border-image: url("assets/textures/border.png") 9;
+	border-width: 9px;
+	border-radius: 6px;
+}
+
+.updated {
+	grid-area: updated;
+}
+
+.updated .label {
+	text-align: left;
+}
+
+.updated .date {
+	text-align: right;
+}
+
+.navlist {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navlist li {
+	margin: 0;
+	padding: 0;
+}
+
+.navitem {
+	width: 100%;
+}
+
+.navitem a {
+	width: 100%;
+}
+
+.navitem:hover {
+	color: black;
+	background-color: var(--accent-color);
+	text-shadow: none;
+}
+
+.navitem:hover a {
+	color: black;
+	text-shadow: none;
+}
+
+.navitem:hover .navicon {
+	filter: brightness(0);
+}
+
+.navicon {
+	width: 18px;
+	image-rendering: pixelated;
+	filter: drop-shadow(2px 2px var(--shadow-color));
+	margin-right: 4px;
+}

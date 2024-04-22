@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alayna's Dragon Den</title>
+	<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+	<link href="/landing.css" rel="stylesheet" type="text/css" media="all">
+	<script src="scripts/common.js" defer></script>
+</head>
+
+<body>
+	<div class="background" style="opacity: 10%; --bg-size: 69px; --scr-x: 1; --scr-y: 1; --scr-time: 3s;">
+	</div>
+	<div class="background" style="opacity: 20%; --bg-size: 151px; --scr-x: 1; --scr-y: 1; --scr-time: 5s;">
+	</div>
+	<div class="background" style="opacity: 30%; --bg-size: 360px; --scr-x: 1; --scr-y: 1; --scr-time: 7s;">
+	</div>
+
+	<h1 class="welcome box">
+		Alayna's Dragon Den
+	</h1>
+	<div class="greeting box">
+		<p>
+			It seems you've found yourself far from home, friend. Looks like there's a storm rolling in... You can wait
+			it out in my den if you aren't a fan of getting soaked. Don't worry, I'm not interested in eating you or
+			robbing you of your valuables, I'm not that sort of dragon.
+		</p>
+		<p>
+			If you have one of those "phone" things, do keep it put away, you won't find use for it in my den. The magic
+			is too dense in here, it ruins the poor little screen.
+		</p>
+		<p>
+			Does the flashing of lightning bother you, friend? I'm sure I can find a spell around here somewhere to
+			block it out,
+			if you'd like?
+		</p>
+	</div>
+
+	<div class="greeting answers flex">
+		<a class="answer box" href="/home.html" onclick="setCookie('lightning', true);">Flashing is ok.</a>
+		<a class="answer box" href="/home.html" onclick="setCookie('lightning', false);">No flashes please!</a>
+	</div>
+</body>
+
+</html>

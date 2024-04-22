@@ -1,0 +1,39 @@
+:root {
+	--landing-width: 600px;
+}
+
+.welcome {
+	width: var(--landing-width);
+	margin: 10px auto;
+	text-align: center;
+}
+
+.greeting {
+	width: var(--landing-width);
+	margin: 10px auto;
+}
+
+p {
+	margin: 0 0 10px 0;
+}
+
+.answers {
+	width: var(--landing-width);
+	margin: 10px auto;
+	gap: 10px;
+}
+
+.answer {
+	text-align: center;
+	width: 50%;
+}
+
+a.answer {
+	text-decoration: none;
+}
+
+.answer:hover {
+	color: black;
+	text-shadow: none;
+	background-image: linear-gradient(to top left, black -100%, var(--accent-color));
+}
