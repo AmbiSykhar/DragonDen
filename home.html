@@ -20,42 +20,9 @@
 	<canvas class="rain" id="rainCanvas"></canvas>
 
 	<div class="grid">
-		<nav class="navbar box">
-			<div>Navigation</div>
-			<ul class="navlist">
-				<li class="navitem">
-					<a href="/home.html"><img class="navicon" src="assets/icons/home.png" alt="home">Home</a>
-				</li>
-				<li class="navitem">
-					<a href="/blog.html"><img class="navicon" src="assets/icons/blog.png" alt="blog">Blog [NYI]</a>
-				</li>
-				<li class="navitem">
-					<a href="/projects.html"> <img class="navicon" src="assets/icons/projects.png"
-							alt="projects">Projects [NYI]</a>
-				</li>
-				<li class="navitem">
-					<a href="/about-me.html"> <img class="navicon" src="assets/icons/about-me.png" alt="about">About Me
-						[NYI]</a>
-				</li>
-			</ul>
-		</nav>
-
-		<div class="updated box">
-			<div class="label">Last updated:</div>
-			<div class="date">April 22, 2024</div>
-		</div>
-
-		<div class="sidebar box">
-			<div>Settings</div>
-			<div>
-				<input type="checkbox" id="lightning-toggle" onchange="toggleLightning(this.checked);">
-				<label for="lightning-toggle">Lightning</label>
-			</div>
-			<div>
-				<input type="checkbox" id="rain-toggle" onchange="toggleRain(this.checked);">
-				<label for="rain-toggle">Rain</label>
-			</div>
-		</div>
+		<div class="navbar box" id="navbar"></div>
+		<div class="updated box" id="last-updated"></div>
+		<div class="settings box" id="settings"></div>
 
 		<h1 class="welcome box">Welcome to my den!</h1>
 		<div class="content box">

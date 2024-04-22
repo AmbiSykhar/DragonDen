@@ -86,9 +86,9 @@ h1 {
 	display: grid;
 	grid-template-columns: 200px auto 200px;
 	grid-template-areas:
-		"nav  head    updated"
-		"nav  content side"
-		"nav content side"
+		"nav   head    updated"
+		"nav   content settings"
+		"nav   content settings"
 		"blank content blank2";
 	gap: 10px;
 	max-width: 1500px;
@@ -107,8 +107,8 @@ h1 {
 	top: 10px;
 }
 
-.sidebar {
-	grid-area: side;
+.settings {
+	grid-area: settings;
 }
 
 .content {

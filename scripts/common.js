@@ -1,19 +1,19 @@
-function checkCookie(name) {
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let cookies = decodedCookie.split("; ");
-    return cookies.find((c) => c.startsWith(`${name}=`)) != undefined;
-}
-
-function getCookie(name) {
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let cookies = decodedCookie.split("; ");
-    return cookies.find((c) => c.startsWith(`${name}=`))?.split("=")[1];
-}
-
-function setCookie(name, value) {
-    document.cookie = `${name}=${value}`;
-}
-
 function getRandomNumber(min, max) {
     return (max - min) * Math.random() + min;
 }
+
+fetch("/assets/templates/navbar.html")
+    .then(data => { return data.text(); })
+    .then(data => { document.getElementById("navbar").innerHTML = data; });
+
+fetch("/assets/templates/settings.html")
+    .then(data => { return data.text(); })
+    .then(data => { document.getElementById("settings").innerHTML = data; })
+    .then(() => {
+        document.getElementById("lightning-toggle").checked = localStorage.lightning;
+        document.getElementById("rain-toggle").checked = localStorage.rain;
+    });
+
+fetch("/assets/templates/last-updated.html")
+    .then(data => { return data.text(); })
+    .then(data => { document.getElementById("last-updated").innerHTML = data; });

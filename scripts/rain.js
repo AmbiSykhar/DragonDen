@@ -3,16 +3,11 @@ const rainCanvas = document.getElementById("rainCanvas");
 /** @type {CanvasRenderingContext2D} */
 const ctx = rainCanvas.getContext("2d");
 
-let urlParams = new URLSearchParams(window.location.search);
-let cookies = document.cookie.split("; ");
+if (localStorage.lightning === null) localStorage.lightning = false; // default false
+let lightningActive = localStorage.lightning;
 
-if (!checkCookie("lightning")) setCookie("lightning", false); // default to false
-let lightningActive = getCookie("lightning") == "true";
-document.getElementById("lightning-toggle").checked = lightningActive;
-
-if (!checkCookie("rain")) setCookie("rain", true); // default to true
-let rainActive = getCookie("rain") == "true";
-document.getElementById("rain-toggle").checked = rainActive;
+if (localStorage.rain === null) localStorage.rain = true; // default true
+let rainActive = localStorage.rain;
 
 let framerate = 24; // frames per second
 let rainWidth = 1;  // width of each raindrop in pixels
@@ -25,6 +20,8 @@ let rainAmount = 20; // approximate raindrops per square inch
 let rainDistanceMax = 100; // the maximum distance raindrops can be from the screen
 let rainDistanceSlices = 10; // the amount of distance planes rain should be generated in, for making more raindrops farther away
 
+let raindrops = [];
+
 function flashLightning() {
 	if (lightningActive)
 		document.body.classList.add("lightning-flash");
@@ -35,20 +32,6 @@ function unflashLightning() {
 	document.body.classList.remove("lightning-flash");
 	window.setTimeout(flashLightning, getRandomNumber(5000, 20000));
 }
-
-window.setTimeout(flashLightning, getRandomNumber(5000, 20000));
-
-function toggleLightning(isActive) {
-	lightningActive = isActive;
-	setCookie("lightning", isActive);
-}
-
-function toggleRain(isActive) {
-	rainActive = isActive;
-	setCookie("rain", isActive);
-}
-
-let raindrops = [];
 
 function onResize() {
 	let w = rainCanvas.width = window.innerWidth;
@@ -80,9 +63,6 @@ function onResize() {
 		}
 	}
 }
-
-window.addEventListener("resize", onResize);
-onResize();
 
 function updateRain() {
 	ctx.clearRect(0, 0, rainCanvas.width, rainCanvas.height);
@@ -121,4 +101,14 @@ function updateRain() {
 	}
 }
 
-window.setInterval(updateRain, 1000 / framerate);
+window.onload = () => {
+	// start lightning
+	window.setTimeout(flashLightning, getRandomNumber(5000, 20000));
+
+	// start rain spawning
+	window.addEventListener("resize", onResize);
+	onResize();
+
+	// set up rain updates
+	window.setInterval(updateRain, 1000 / framerate);
+};
