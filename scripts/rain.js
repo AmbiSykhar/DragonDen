@@ -3,10 +3,7 @@ const rainCanvas = document.getElementById("rainCanvas");
 /** @type {CanvasRenderingContext2D} */
 const ctx = rainCanvas.getContext("2d");
 
-if (localStorage.lightning === null) localStorage.lightning = false; // default false
 let lightningActive = localStorage.lightning;
-
-if (localStorage.rain === null) localStorage.rain = true; // default true
 let rainActive = localStorage.rain;
 
 let framerate = 24; // frames per second

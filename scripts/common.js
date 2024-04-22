@@ -2,6 +2,9 @@ function getRandomNumber(min, max) {
     return (max - min) * Math.random() + min;
 }
 
+if (localStorage.lightning === null) localStorage.lightning = false; // default false
+if (localStorage.rain === null) localStorage.rain = true; // default true
+
 fetch("/assets/templates/navbar.html")
     .then(data => { return data.text(); })
     .then(data => { document.getElementById("navbar").innerHTML = data; });
