@@ -14,7 +14,7 @@
 
 @font-face {
 	font-family: DragonOracle;
-	src: url("assets/fonts/DragonOracle.ttf");
+	src: url("/assets/fonts/DragonOracle.ttf");
 }
 
 body {
@@ -53,7 +53,7 @@ a {
 }
 
 .background {
-	background-image: url("assets/textures/noiseTexture.png");
+	background-image: url("/assets/textures/noiseTexture.png");
 	background-size: var(--bg-size);
 	position: fixed;
 	top: 0;
@@ -126,7 +126,7 @@ h1 {
 
 	border-color: var(--fallback-color);
 	border-style: solid;
-	border-image: url("assets/textures/border.png") 9;
+	border-image: url("/assets/textures/border.png") 9;
 	border-width: 9px;
 	border-radius: 6px;
 }
