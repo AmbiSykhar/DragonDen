@@ -7,6 +7,7 @@ let lightningActive = localStorage.lightning;
 let rainActive = localStorage.rain;
 
 let framerate = 24; // frames per second
+let resolutionDivisor = 2; // divides the resolution by this value
 let rainWidth = 1;  // width of each raindrop in pixels
 let rainLength = 50; // base length of each raindrop in pixels
 let rainSpeed = 420; // base pixels per second
@@ -31,8 +32,8 @@ function unflashLightning() {
 }
 
 function onResize() {
-	let w = rainCanvas.width = window.innerWidth;
-	let h = rainCanvas.height = window.innerHeight;
+	let w = rainCanvas.width = Math.round(window.innerWidth / resolutionDivisor);
+	let h = rainCanvas.height = Math.round(window.innerHeight / resolutionDivisor);
 
 	raindrops = [];
 

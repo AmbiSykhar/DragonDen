@@ -66,6 +66,7 @@ a {
 }
 
 .rain {
+	image-rendering: pixelated;
 	position: fixed;
 	top: 0;
 	left: 0;
