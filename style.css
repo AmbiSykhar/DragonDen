@@ -6,15 +6,15 @@
 	--text-color: white;
 }
 
+@font-face {
+	font-family: DragonOracle;
+	src: url("/assets/fonts/DragonOracle.ttf");
+}
+
 ::selection {
 	color: black;
 	background-color: var(--accent-color);
 	text-shadow: none;
-}
-
-@font-face {
-	font-family: DragonOracle;
-	src: url("/assets/fonts/DragonOracle.ttf");
 }
 
 body {
@@ -101,7 +101,7 @@ h1 {
 	text-align: center;
 }
 
-.navbar {
+.navbar.box {
 	grid-row: 1 / -1;
 	grid-area: nav;
 	position: sticky;
@@ -144,29 +144,35 @@ h1 {
 	text-align: right;
 }
 
+.navheader {
+	text-align: center;
+	text-decoration: underline;
+	margin-bottom: 5px;
+}
+
 .navlist {
 	list-style: none;
-	margin: 0;
+	margin: 0 -10px;
 	padding: 0;
 }
 
 .navlist li {
 	margin: 0;
-	padding: 0;
 }
 
 .navitem {
-	width: 100%;
+	padding: 0px 10px;
 }
 
 .navitem a {
 	width: 100%;
+	display: block;
 }
 
 .navitem:hover {
 	color: black;
-	background-color: var(--accent-color);
 	text-shadow: none;
+	background-image: linear-gradient(to top left, black -100%, var(--accent-color));
 }
 
 .navitem:hover a {

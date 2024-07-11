@@ -6,17 +6,21 @@ const ctx = rainCanvas.getContext("2d");
 let lightningActive = localStorage.lightning;
 let rainActive = localStorage.rain;
 
-let framerate = 24; // frames per second
-let resolutionDivisor = 2; // divides the resolution by this value
+const framerate = 24; // frames per second
+const resolutionDivisor = 2; // divides the resolution by this value
+
 let rainWidth = 1;  // width of each raindrop in pixels
 let rainLength = 50; // base length of each raindrop in pixels
-let rainSpeed = 420; // base pixels per second
+
+let rainSpeed = 690; // base pixels per second
 let rainSpeedVariation = 30; // base pps offset range for each raindrop
+
 let rainAngle = 30; // angle of rainfall in degrees
 let rainAngleVariation = 2; // degree offset range for each raindrop
-let rainAmount = 20; // approximate raindrops per square inch
-let rainDistanceMax = 100; // the maximum distance raindrops can be from the screen
-let rainDistanceSlices = 10; // the amount of distance planes rain should be generated in, for making more raindrops farther away
+
+let rainAmount = 50; // approximate raindrops per square inch
+let rainDistanceMax = 200; // the maximum distance raindrops can be from the screen
+let rainDistanceSlices = 20; // the amount of distance planes rain should be generated in, for making more raindrops farther away
 
 let raindrops = [];
 
@@ -32,8 +36,8 @@ function unflashLightning() {
 }
 
 function onResize() {
-	let w = rainCanvas.width = Math.round(window.innerWidth / resolutionDivisor);
-	let h = rainCanvas.height = Math.round(window.innerHeight / resolutionDivisor);
+	const w = rainCanvas.width = Math.round(window.innerWidth / resolutionDivisor);
+	const h = rainCanvas.height = Math.round(window.innerHeight / resolutionDivisor);
 
 	raindrops = [];
 
@@ -57,7 +61,7 @@ function onResize() {
 				speedOffset: getRandomNumber(-rainSpeedVariation, rainSpeedVariation),
 				angleOffset: getRandomNumber(-rainAngleVariation, rainAngleVariation),
 				distance: getRandomNumber(d, distances[j + 1]),
-			})
+			});
 		}
 	}
 }
@@ -71,11 +75,10 @@ function updateRain() {
 
 	for (const drop of raindrops) {
 		const distanceCoeff = 25 / drop.distance; // should this magic number be something more significant maybe?
-		const angle = rainAngle + drop.angleOffset;
 		const speed = (rainSpeed + rainSpeedVariation) * distanceCoeff;
 		const length = (rainLength) * distanceCoeff;
 
-		const rads = angle * (Math.PI / 180);
+		const rads = (rainAngle + drop.angleOffset) * (Math.PI / 180);
 		const rainStepX = Math.sin(rads);
 		const rainStepY = Math.cos(rads);
 
