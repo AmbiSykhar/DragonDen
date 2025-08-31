@@ -20,16 +20,15 @@ p {
 .answers {
 	width: var(--landing-width);
 	margin: 10px auto;
-	gap: 10px;
 }
 
 .answer {
 	text-align: center;
-	width: 50%;
+	width: 66%;
 }
 
 a.answer {
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 .answer:hover {
