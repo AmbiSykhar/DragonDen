@@ -1,0 +1,1 @@
+Blend color on top of texture with SCREEN method

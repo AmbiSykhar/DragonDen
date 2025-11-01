@@ -1,0 +1,123 @@
+:root {
+	--background-scale: 3;
+	--background-side-width: calc(115px * var(--background-scale));
+	--background-layer-offset: calc(24px * var(--background-scale));
+
+	--background-image:
+		url("/assets/textures/pmd1/background-left.png"),
+		url("/assets/textures/pmd1/background-right.png"),
+		linear-gradient(to right,
+			#111111 var(--background-side-width),
+			#eeeeee var(--background-side-width),
+			#eeeeee calc(100vw - var(--background-side-width)),
+			#111111 calc(100vw - var(--background-side-width))
+		);
+
+	--background-hue: 0deg;
+}
+
+@font-face {
+	font-family: wondermail;
+	src: url("/assets/fonts/wondermail.ttf");
+}
+
+body {
+	font-family: wondermail;
+}
+
+.bg-layer-1 {
+	background-image:
+		url("/assets/textures/pmd1/background-left.png"),
+		url("/assets/textures/pmd1/background-right.png"),
+		linear-gradient(to right,
+			#111111 var(--background-side-width),
+			#eeeeee var(--background-side-width),
+			#eeeeee calc(100vw - var(--background-side-width)),
+			#111111 calc(100vw - var(--background-side-width))
+		);
+
+	background-position:
+		var(--background-layer-offset),
+		calc(100vw - var(--background-layer-offset) - var(--background-side-width)),
+		center;
+	background-repeat: repeat-y, repeat-y, repeat-y;
+	background-size: var(--background-side-width), var(--background-side-width), 100vw;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	image-rendering: pixelated;
+
+	transform: rotate(180deg);
+
+	z-index: -5;
+
+	animation: bg-scroll 6.4s steps(192) infinite;
+}
+
+.bg-layer-2 {
+	background-image:
+		url("/assets/textures/pmd1/background-left.png"),
+		url("/assets/textures/pmd1/background-right.png"),
+		linear-gradient(to right, #eeeeee, #eeeeee);
+
+	background-position: left, right, center;
+	background-repeat: repeat-y, repeat-y, repeat-y;
+	background-size: var(--background-side-width), var(--background-side-width), 100vw;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	image-rendering: pixelated;
+
+	opacity: 50%;
+
+	z-index: -4;
+
+	animation: bg-scroll 6.4s steps(192) infinite;
+}
+
+.bg-layer-3 {
+	background-color: hsl(var(--background-hue), 100%, 50%);
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	image-rendering: pixelated;
+
+	z-index: -3;
+
+	mix-blend-mode: screen;
+
+	animation: bg-color 7s linear infinite;
+}
+
+@keyframes bg-scroll {
+	from {
+		background-position-y: 0;
+	}
+	to {
+		background-position-y: calc(-192px * var(--background-scale));
+	}
+}
+
+@property --background-hue {
+	syntax: "<angle>";
+	inherits: true;
+	initial-value: 0deg;
+}
+
+@keyframes bg-color {
+	from {
+		--background-hue: 0deg;
+	}
+	to {
+		--background-hue: 359deg;
+	}
+}
