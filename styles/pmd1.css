@@ -1,10 +1,12 @@
 :root {
-	--background-scale: 3;
+	--background-scale: 4;
 	--background-side-width: calc(115px * var(--background-scale));
 	--background-layer-offset: calc(24px * var(--background-scale));
 
 	--background-light: #f7f7f7;
 	--background-dark: #161616;
+
+	--border-scale: 2;
 
 	--background-hue: 0deg;
 }
@@ -120,7 +122,9 @@ body {
 	background-color: #23496a;
 	background-clip: padding-box;
 	border-image: url("/assets/textures/pmd1/border.png") 3 7;
-	border-width: calc(3px * var(--background-scale)) calc(7px * var(--background-scale));
+	border-width: calc(3px * var(--border-scale)) calc(7px * var(--border-scale));
 	border-radius: 0;
 	image-rendering: pixelated;
+
+	padding: 10px 14px;
 }
