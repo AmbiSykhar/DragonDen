@@ -3,15 +3,8 @@
 	--background-side-width: calc(115px * var(--background-scale));
 	--background-layer-offset: calc(24px * var(--background-scale));
 
-	--background-image:
-		url("/assets/textures/pmd1/background-left.png"),
-		url("/assets/textures/pmd1/background-right.png"),
-		linear-gradient(to right,
-			#111111 var(--background-side-width),
-			#eeeeee var(--background-side-width),
-			#eeeeee calc(100vw - var(--background-side-width)),
-			#111111 calc(100vw - var(--background-side-width))
-		);
+	--background-light: #f7f7f7;
+	--background-dark: #161616;
 
 	--background-hue: 0deg;
 }
@@ -30,10 +23,10 @@ body {
 		url("/assets/textures/pmd1/background-left.png"),
 		url("/assets/textures/pmd1/background-right.png"),
 		linear-gradient(to right,
-			#111111 var(--background-side-width),
-			#eeeeee var(--background-side-width),
-			#eeeeee calc(100vw - var(--background-side-width)),
-			#111111 calc(100vw - var(--background-side-width))
+			var(--background-dark) var(--background-side-width),
+			var(--background-light) var(--background-side-width),
+			var(--background-light) calc(100vw - var(--background-side-width)),
+			var(--background-dark) calc(100vw - var(--background-side-width))
 		);
 
 	background-position:
@@ -61,7 +54,7 @@ body {
 	background-image:
 		url("/assets/textures/pmd1/background-left.png"),
 		url("/assets/textures/pmd1/background-right.png"),
-		linear-gradient(to right, #eeeeee, #eeeeee);
+		linear-gradient(to right, var(--background-light), var(--background-light));
 
 	background-position: left, right, center;
 	background-repeat: repeat-y, repeat-y, repeat-y;
@@ -120,4 +113,14 @@ body {
 	to {
 		--background-hue: 359deg;
 	}
+}
+
+.box {
+	background-image: none;
+	background-color: #23496a;
+	background-clip: padding-box;
+	border-image: url("/assets/textures/pmd1/border.png") 3 7;
+	border-width: calc(3px * var(--background-scale)) calc(7px * var(--background-scale));
+	border-radius: 0;
+	image-rendering: pixelated;
 }
